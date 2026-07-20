@@ -9,7 +9,8 @@
         return r.text();
       })
       .then(function (html) {
-        el.innerHTML = html;
+        // 箱のdivごと置き換える(divの中に入れるとposition:stickyが効かなくなるため)
+        el.outerHTML = html;
         if (done) done();
       })
       .catch(function (e) {
